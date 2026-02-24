@@ -1,0 +1,209 @@
+/* Input field container styling */
+
+.input {
+    display: flex;
+    width: 95%;
+    position: relative;
+    align-items: center;
+}
+
+
+/* Styling for the input box with rounded corners and shadow */
+
+.input__box {
+    width: 100%;
+    border-radius: 50px;
+    padding: 20px 30px;
+    font-size: 25px;
+    border: none;
+    transition: 0.2s;
+    box-shadow: inset 0 0 5px black;
+}
+
+
+/* Focus state for input box with dark overlay */
+
+.input__box:focus {
+    box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+
+/* Submit button styling with pink background */
+
+.input_submit {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 12px;
+    border-radius: 50px;
+    right: 0px;
+    border: none;
+    font-size: 15px;
+    background-color: #ff69b4;
+    /* Hot pink for girly look */
+    color: white;
+    transition: 0.2s all;
+    box-shadow: 0 0 10px black;
+}
+
+
+/* Hover effect for submit button */
+
+.input_submit:hover {
+    background-color: #ffb6c1;
+    /* Light pink on hover */
+}
+
+
+/* Active state for submit button with scale effect */
+
+.input_submit:active {
+    transform: scale(0.8);
+    box-shadow: 0 0 5px black;
+}
+
+
+/* Container for the todo lists */
+
+.container {
+    width: 95%;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+/* Styling for todo list sections with pink background */
+
+.todos {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 47.5%;
+    padding: 15px;
+    background-color: rgb(255, 182, 193);
+    /* Light pink background */
+}
+
+
+/* Active drag state with hot pink */
+
+.dragactive {
+    background-color: rgb(255, 105, 180);
+    /* Hot pink for active drag */
+}
+
+
+/* Complete drag state with deep pink */
+
+.dragcomplete {
+    background-color: rgb(255, 20, 147);
+    /* Deep pink for complete */
+}
+
+
+/* Remove state with light pink */
+
+.remove {
+    background-color: rgb(255, 192, 203);
+    /* Light pink for remove */
+}
+
+
+/* Heading for todo sections */
+
+.todos__heading {
+    font-size: 30px;
+    /* text-align: center; */
+    color: #ff1493;
+    /* Deep pink color */
+}
+
+
+/* Individual todo item styling */
+
+.todos__single {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+    transition: 0.2s;
+}
+
+
+/* Drag state shadow */
+
+.drag {
+    box-shadow: 0 0 20px black;
+}
+
+
+/* Hover effect for todo items */
+
+.todos__single:hover {
+    box-shadow: 0 0 5px black;
+    transform: scale(1.03);
+}
+
+
+/* Text input for editing todos */
+
+.todos__single--text {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+}
+
+
+/* Focus state for text input */
+
+.todos__single--text:focus {
+    outline: none;
+}
+
+
+/* Icon styling for actions */
+
+.icon {
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* Responsive design for medium screens */
+
+@media (max-width: 1100px) {
+    .todos {
+        width: 45%;
+    }
+}
+
+
+/* Responsive design for small screens */
+
+@media (max-width: 700px) {
+    .input {
+        width: 95%;
+    }
+    .container {
+        width: 95%;
+        flex-direction: column;
+    }
+    .todos {
+        width: 95%;
+    }
+}
+
+
+/* Timestamp styling */
+
+.timestamp {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
