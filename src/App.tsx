@@ -1,5 +1,5 @@
 // Importing React hooks and components for the app
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
@@ -12,10 +12,32 @@ import { Todo } from "./models/models";
 const App: React.FC = () => {
   // State for the current todo input
   const [todo, setTodo] = useState<string>("");
-  // State for the list of active todos
-  const [todos, setTodos] = useState<Array<Todo>>([]);
-  // State for the list of completed todos
-  const [CompletedTodos, setCompletedTodos] = useState<Array<Todo>>([]);
+  // State for the list of active todos, loaded from localStorage
+  const [todos, setTodos] = useState<Array<Todo>>(() => {
+    const savedTodos = localStorage.getItem("activeTodos");
+    return savedTodos ? JSON.parse(savedTodos).map((todo: any) => ({
+      ...todo,
+      timestamp: new Date(todo.timestamp)
+    })) : [];
+  });
+  // State for the list of completed todos, loaded from localStorage
+  const [CompletedTodos, setCompletedTodos] = useState<Array<Todo>>(() => {
+    const savedCompleted = localStorage.getItem("completedTodos");
+    return savedCompleted ? JSON.parse(savedCompleted).map((todo: any) => ({
+      ...todo,
+      timestamp: new Date(todo.timestamp)
+    })) : [];
+  });
+
+  // Effect to save todos to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("activeTodos", JSON.stringify(todos));
+  }, [todos]);
+
+  // Effect to save completed todos to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("completedTodos", JSON.stringify(CompletedTodos));
+  }, [CompletedTodos]);
 
   // Function to handle adding a new todo when form is submitted
   const handleAdd = (e: React.FormEvent) => {
