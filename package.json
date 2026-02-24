@@ -18,11 +18,11 @@
         "react-beautiful-dnd": "^13.1.1",
         "react-dom": "^17.0.2",
         "react-icons": "^4.12.0",
-        "react-scripts": "5.0.1",
         "typescript": "^4.9.5",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
+        "start": "vite",
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
@@ -47,7 +47,7 @@
         ]
     },
     "devDependencies": {
-        "@vitejs/plugin-react": "^5.1.4",
-        "vite": "^7.3.1"
+        "@vitejs/plugin-react": "^4.3.4",
+        "vite": "^4.5.5"
     }
 }
